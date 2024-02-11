@@ -1,0 +1,40 @@
+.sliderRating {
+  .name-and-pen-modif {
+    display: flex;
+
+    img {
+      height: 29px;
+      width: 29px;
+    }
+
+    .taste-name {
+      border: none;
+      font-size: $font-size-text-phone;
+      background-color: $app-bg-color;
+      height: 2rem;
+      text-align: left;
+    }
+
+    .taste-name::placeholder {
+      font-size: $font-size-text-phone;
+      color: $font-family-title-color;
+    }
+
+    .taste-name:focus {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .sliderRating {
+    .name-and-pen-modif {
+      .taste-name {
+        font-size: $font-size-text-tablet;
+      }
+      .taste-name::placeholder {
+        font-size: $font-size-text-tablet;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.profilePageDiv {
+  .recipe-container {
+    margin: 2rem 0;
+
+    h3 {
+      color: $app-primary-font-color;
+    }
+
+    ul {
+      li {
+        list-style-type: none;
+        color: $font-family-title-color;
+        line-height: 2rem;
+        font-size: $font-size-text-phone;
+      }
+    }
+    .recipe-ctn {
+      .recipe-by-session {
+        margin-bottom: 3rem;
+
+        .recipe-p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .profilePageDiv {
+    .recipe-container {
+      ul {
+        margin-left: 1rem;
+
+        li {
+          font-size: $font-size-text-tablet;
+        }
+      }
+      width: 100%;
+
+      .recipe-p {
+        font-size: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.homeBorderDiv {
+  border: 3px solid $app-primary-font-color;
+  width: 90vw;
+  height: fit-content;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  line-height: 1.7rem;
+
+  .homeContentDiv {
+    margin-top: 10vh;
+    height: fit-content;
+
+    .homeTextDiv {
+      margin-left: 12vw;
+      margin-right: 12vw;
+    }
+    .logoImage {
+      height: 10vh;
+      width: auto;
+      margin-bottom: 7vh;
+      border-radius: 6px;
+    }
+    #homeButton {
+      margin-top: 20vh;
+      margin-bottom: 5vh;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $app-primary-font-color;
+        color: $app-bg-color;
+        border: solid 2px $app-primary-font-color;
+      }
+    }
+  }
+
+  .vineyardImage {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 40vh;
+    z-index: -1;
+    opacity: 50%;
+  }
+
+  @media screen and (min-width: 390px) {
+    .homeP {
+      font-size: 16px;
+    }
+    #homeButton {
+      margin-top: 22vh;
+    }
+  }
+
+  @media screen and (min-width: $app-tablet) {
+    .homeContentDiv {
+      margin-top: 5vh;
+      margin-left: 3vw;
+      margin-right: 3vw;
+      line-height: 3rem;
+
+      .homeP {
+        font-size: 24px;
+      }
+      .logoImage {
+        margin-bottom: 3vh;
+      }
+      #homeButton {
+        margin-top: 27vh;
+        margin-bottom: 5vh;
+      }
+    }
+    .vineyardImage {
+      top: 30vh;
+    }
+  }
+
+  @media screen and (min-width: 820px) {
+    .vineyardImage {
+      top: 27vh;
+    }
+  }
+
+  @media screen and (min-width: $app-desktop) {
+    .vineyardImage {
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .homeBorderDiv {
+    height: 80vh;
+    width: 85vw;
+  }
+  .homeContentDiv {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
+  #homeButton {
+    margin-top: 5vh !important;
+  }
+  .homeP {
+    margin-top: 0vh;
+    margin-bottom: 2vh;
+  }
+}

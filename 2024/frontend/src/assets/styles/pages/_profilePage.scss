@@ -1,0 +1,139 @@
+.profilePageDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  a:link {
+    text-decoration: none;
+  }
+
+  .profilePartTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profilePageForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .reviewsPageH2 {
+    margin-top: 5vh;
+  }
+  .reviewsPageP {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+  }
+  .nameDiv {
+    margin-top: 3vh;
+  }
+
+  .reviewsInput {
+    background-color: transparent;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 5vh;
+    width: 40vw;
+    font-size: 14px;
+    color: $font-family-title-color;
+  }
+
+  .reviewsInput:focus {
+    outline: none;
+  }
+
+  .nameInput {
+    margin-right: 5vw;
+  }
+  .longInput {
+    background-color: transparent;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 5vh;
+    width: 85vw;
+    font-size: 14px;
+    color: $font-family-title-color;
+  }
+  .longInput {
+    outline: none;
+  }
+  .nextTimeP {
+    color: $font-family-title-color;
+  }
+  .nextTimeP:hover {
+    color: $app-supporting-color2;
+  }
+  .profileBottles {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    opacity: 30%;
+    margin-top: -9vh;
+  }
+  .profileImage {
+    height: 10vh;
+    width: auto;
+    opacity: 70%;
+    margin-top: -5vh;
+    margin-bottom: 2vh;
+  }
+
+  .buttons-delete-and-back {
+    button {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .reviewsInput {
+    width: 30vw !important;
+  }
+  .nameInput {
+    margin-right: 10vw !important;
+  }
+  .longInput {
+    width: 70vw !important;
+  }
+  .profileBottles {
+    width: 100vh;
+    height: auto;
+    margin-top: -7vh !important;
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .profilePageDiv {
+    flex-direction: row-reverse;
+  }
+  .profileBottles {
+    transform: rotate(90deg);
+    position: fixed !important;
+    margin-right: -50vw;
+    // z-index: 9999;
+  }
+  .profilePartOne {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+  }
+  .profilePartTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -35vw;
+    margin-top: 5vh;
+  }
+  .reviewsInput {
+    width: 15vw !important;
+  }
+  .nameInput {
+    margin-right: 10vw !important;
+  }
+  .longInput {
+    width: 40vw !important;
+  }
+}

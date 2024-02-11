@@ -1,0 +1,61 @@
+.display-wine-container-for-admin {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem;
+  align-items: center;
+  border-bottom: solid 2px $font-family-title-color;
+
+  .wine-and-origin {
+    width: 11rem;
+    p {
+      margin: 0.25rem 0;
+      text-align: left;
+    }
+  }
+
+  .date-and-icons-delete-modif {
+    .buttons-modif-and-delete {
+      .modif-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 29px;
+        height: 29px;
+        background-color: $app-bg-color;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .display-wine-container-for-admin {
+    .wine-and-origin {
+      display: flex;
+      width: 26rem;
+      p {
+        width: 13rem;
+      }
+    }
+
+    .date-and-icons-delete-modif {
+      display: flex;
+
+      .buttons-modif-and-delete {
+        display: flex;
+        align-items: center;
+        padding-left: 0.5rem;
+
+        .modif-button {
+          margin-right: 3rem;
+        }
+
+        img {
+          width: 29px;
+          height: 29px;
+        }
+      }
+    }
+  }
+}

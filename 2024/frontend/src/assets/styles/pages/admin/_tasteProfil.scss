@@ -1,0 +1,37 @@
+.degustation-profil-list-container {
+  h2 {
+    text-align: center;
+  }
+
+  .search-bar-and-button-create {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    padding: 2rem 0;
+    margin: auto;
+  }
+
+  ul {
+    li {
+      list-style-type: none;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .degustation-profil-list-container {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: $app-desktop-medium) {
+  .degustation-profil-list-container {
+    width: 65%;
+
+    .search-bar-and-button-create {
+      width: 65%;
+    }
+  }
+}

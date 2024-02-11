@@ -1,0 +1,138 @@
+.workshop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title-page-workshop {
+    width: 100%;
+    text-align: center;
+  }
+
+  .workshopGuide {
+    font-size: 20px;
+  }
+
+  .grapesLeaves {
+    position: fixed;
+    z-index: -5;
+    height: 80vh;
+    opacity: 30%;
+    top: 20vh;
+    right: -2vw;
+  }
+
+  .name-level-cepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 2vh;
+  }
+
+  .name-cepage-title {
+    text-align: left !important;
+  }
+
+  .cepage-level-container {
+    width: 70%;
+  }
+
+  .cepageAndDosage {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+  }
+
+  .workShopList {
+    list-style-type: none;
+  }
+
+  .title-guide-ctn {
+    margin-top: 2vh;
+    font-size: 25px;
+  }
+
+  .guide-ctn {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 75%;
+    margin-top: 1rem;
+
+    .img-guide {
+      width: 18rem;
+      margin-top: 2vh;
+      margin-bottom: 3vh;
+    }
+
+    .content-guide-ctn {
+      li {
+        color: white;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .btn-workshop {
+    margin: 4rem 0;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .workshop {
+    .cepage-level-container {
+      width: 50%;
+    }
+
+    .cepageAndDosage {
+      width: 50%;
+    }
+
+    .guide-ctn {
+      width: 58%;
+      .img-guide {
+        margin-top: 5vh;
+        margin-bottom: 0vh;
+      }
+    }
+    .grapesLeaves {
+      right: 5vw;
+      top: 22vh;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .workshop {
+    width: 70%;
+    margin: auto;
+
+    .workShopList {
+      width: 50vw;
+    }
+
+    .grapesLeaves {
+      right: 20vw;
+      top: 20vh;
+    }
+
+    .guide-ctn {
+      .img-guide {
+        width: 30rem;
+      }
+    }
+
+    .title-page-workshop {
+      width: 100%;
+    }
+
+    .name-level-cepage {
+      margin: 3rem 0;
+    }
+
+    .btn-workshop {
+      margin-bottom: 5rem;
+    }
+  }
+}

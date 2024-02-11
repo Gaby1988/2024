@@ -1,0 +1,114 @@
+.wine-desciption-user-container {
+  .modif-title-wine {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    .title-wine {
+      border: none;
+      border-bottom: 2px solid $font-family-title-color;
+      @include font-title-phone;
+      background-color: $app-bg-color;
+      height: 2rem;
+      text-align: center;
+    }
+
+    .title-wine::placeholder {
+      @include font-title-phone;
+    }
+
+    .title-wine:focus {
+      outline: none;
+    }
+  }
+
+  .button-modif-and-pic-wine-bottle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    .wine-bottle-picture-admin {
+      height: 16rem;
+      width: 16rem;
+    }
+
+    .file-upload {
+      margin-top: 2rem;
+      color: $font-family-title-color;
+    }
+
+    input[type="file"]::file-selector-button {
+      border: 2px solid $app-primary-font-color;
+      color: $app-primary-font-color;
+      padding: 0.2em 0.4em;
+      border-radius: 0.2em;
+      background-color: $app-bg-color-button;
+      transition: 1s;
+    }
+  }
+
+  .button-modif-and-wine-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-top: 2rem;
+
+    .description-wine {
+      height: 13rem;
+      width: 15rem;
+      border: solid 2px $font-family-title-color;
+      @include font-text-phone;
+      background-color: $app-bg-color;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    .description-wine ::placeholder {
+      @include font-text-phone;
+    }
+
+    .description-wine:focus {
+      outline: none;
+    }
+  }
+
+  .buttons-delete-and-back {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .wine-desciption-user-container {
+    padding-bottom: 2rem;
+
+    .button-modif-and-wine-description {
+      padding-top: 0;
+
+      .description-wine {
+        width: 20rem;
+        height: 15rem;
+        font-size: 18px;
+      }
+    }
+
+    .pict-wine-and-description-user {
+      .wine-bottle-picture-admin {
+        margin-top: 1rem;
+      }
+    }
+
+    .buttons-delete-and-back {
+      flex-direction: row;
+      justify-content: center;
+      .primary-button {
+        margin: 0 1.25rem;
+      }
+    }
+  }
+}

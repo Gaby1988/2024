@@ -1,0 +1,87 @@
+.wine-desciption-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4rem;
+
+  h2 {
+    text-align: center;
+  }
+
+  .pict-wine-and-description-user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+
+    .wine-bottle-picture-user {
+      height: 16rem;
+      width: 16rem;
+    }
+
+    .description-line-container {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      p {
+        // padding-top: 2rem;
+        text-align: left;
+      }
+
+      .vertical-line-next-description-wine {
+        width: 2px;
+        height: 16rem;
+        background-color: white;
+        margin-right: 2rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  button {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .wine-desciption-user-container {
+    .pict-wine-and-description-user {
+      flex-direction: row;
+      justify-content: space-around;
+      // align-items: flex-start;
+      height: 65vh;
+      padding-top: 0;
+
+      .wine-bottle-picture-user {
+        height: 16rem;
+        // margin-top: 4rem;
+      }
+
+      .description-line-container {
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .wine-desciption-user-container {
+    width: 80%;
+    margin: auto;
+
+    .pict-wine-and-description-user {
+      height: 60vh;
+      .wine-bottle-picture {
+        height: 16rem;
+        margin-top: 2rem;
+      }
+    }
+
+    .wine-desciption-user-container {
+      height: 64vh;
+    }
+  }
+}

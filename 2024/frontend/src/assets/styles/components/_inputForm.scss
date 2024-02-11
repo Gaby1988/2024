@@ -1,0 +1,29 @@
+.input-Form-container {
+  width: 100%;
+  margin: auto;
+  .input-Form {
+    border: none;
+    border-bottom: 1px solid $font-family-title-color;
+    background-color: $app-bg-color;
+    color: $font-family-title-color;
+    width: 100%;
+    font-size: $font-size-text-phone;
+  }
+
+  input::placeholder {
+    color: $font-family-title-color;
+  }
+
+  .input-Form:focus {
+    outline: none;
+    border-bottom: solid 2px $font-family-title-color;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .input-Form-container {
+    .input-Form {
+      font-size: $font-size-text-tablet;
+    }
+  }
+}

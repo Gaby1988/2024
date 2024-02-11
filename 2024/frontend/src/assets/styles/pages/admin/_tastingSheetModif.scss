@@ -1,0 +1,40 @@
+.tasting-sheet-admin-conatainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button-end-tasting {
+    margin: 2rem;
+  }
+
+  .slider-degustation-wine {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .tasting-sheet-admin-conatainer {
+    .slider-degustation-wine {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .tasting-sheet-admin-conatainer {
+    .slider-degustation-wine {
+      width: 40%;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop-medium) {
+  .tasting-sheet-admin-conatainer {
+    .slider-degustation-wine {
+      width: 30%;
+    }
+  }
+}

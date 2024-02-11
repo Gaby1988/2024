@@ -1,0 +1,165 @@
+.degustation-profile-container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .wineleaf-bg-img {
+    opacity: 15%;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    object-fit: cover;
+  }
+
+  .profileTitle {
+    margin: 2% auto 1% auto;
+    color: $app-primary-font-color;
+  }
+
+  .degustation-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      margin: 0 auto 1% auto;
+    }
+
+    p {
+      width: 70%;
+      margin: 0 auto 3% auto;
+      text-align: center;
+      font-family: $app-primary-font;
+    }
+  }
+
+  .assemblez-vin,
+  .selection-vin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -1vh;
+    margin-bottom: -7vh;
+
+    a {
+      text-decoration: none;
+    }
+
+    h3 {
+      margin: 3% auto 3% auto;
+      color: $app-primary-font-color;
+    }
+
+    img {
+      box-shadow: 0px 0px 10px -2px #b19c71;
+      width: 200px;
+      height: 160px;
+      border-radius: 8px;
+
+      cursor: pointer;
+    }
+    .selection-text {
+      width: 7rem;
+      bottom: 130px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $app-supporting-color;
+      background-color: $app-primary-font-color;
+      opacity: 75%;
+      border-radius: 4px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      pointer-events: none;
+      position: relative;
+      font-family: $app-primary-font;
+    }
+  }
+
+  h4 {
+    text-align: center;
+    margin: 0 auto 0 auto;
+    color: $font-family-title-color;
+    font-weight: lighter;
+    font-size: 1rem;
+  }
+
+  .button-deg {
+    text-align: center;
+    margin: 5% auto 5% auto;
+  }
+}
+@media screen and (min-width: $app-tablet) {
+  .degustation-profile-container {
+    .wineleaf-bg-img {
+      height: 132vh;
+    }
+    .assemblez-vin,
+    .selection-vin {
+      h3 {
+        font-size: 30px;
+      }
+
+      img {
+        width: 230px;
+        height: 180px;
+      }
+
+      .selection-text {
+        width: 8rem;
+        bottom: 144px;
+      }
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop-medium) {
+  .degustation-profile-container {
+    .wineleaf-bg-img {
+      height: 206vh;
+    }
+    .path-select-ctn {
+      width: 100vw;
+
+      .assemblez-vin,
+      .selection-vin {
+        h3 {
+          font-size: 40px;
+          margin: 1% auto 3% auto;
+        }
+
+        img {
+          width: 350px;
+          height: 280px;
+        }
+      }
+      .selection-text {
+        width: 9rem;
+        bottom: 215px;
+        font-size: 32px;
+      }
+    }
+
+    h4 {
+      font-size: 1.7rem;
+    }
+    .path-select-ctn {
+      display: flex;
+    }
+
+    .button-deg {
+      Button {
+        width: 15rem;
+      }
+    }
+  }
+}

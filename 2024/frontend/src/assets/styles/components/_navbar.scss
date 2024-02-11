@@ -1,0 +1,21 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  height: 80px;
+  background-color: $app-bg-color;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+
+  img {
+    width: 50px;
+  }
+}
+
+.hide-navbar {
+  display: none;
+}

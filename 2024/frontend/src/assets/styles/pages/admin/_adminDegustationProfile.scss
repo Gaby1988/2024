@@ -1,0 +1,359 @@
+.profile-degustation-ctn {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .degustation-header-admin {
+    align-items: center;
+
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
+    .degustation-title-admin-fix {
+      width: auto;
+      height: auto;
+      text-align: center;
+    }
+
+    .degustation-title-admin {
+      display: flex;
+      justify-content: center;
+
+      textarea {
+        margin-left: 17px;
+        border: none;
+        resize: none;
+        width: 300px;
+        height: 8vh;
+        text-align: center;
+        cursor: pointer;
+        @include font-title-phone;
+        background: transparent;
+      }
+      img {
+        width: 15px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .degustation-texte-admin {
+      display: flex;
+      justify-content: center;
+      margin-left: 17px;
+
+      textarea {
+        resize: none;
+        border-radius: 3px;
+        border: 2px solid #b19c71;
+        width: 300px;
+        height: 16vh;
+        text-align: center;
+        @include font-text-phone;
+        background: transparent;
+        cursor: pointer;
+      }
+    }
+    img {
+      width: 15px;
+      margin-left: 5px;
+    }
+  }
+
+  .assemblage-img-ctn,
+  .selection-img-ctn {
+    width: auto;
+    height: 240px;
+    text-align: center;
+  }
+
+  .assemblez-vin-admin,
+  .selection-vin-admin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 1rem;
+
+    h3 {
+      text-align: center;
+      margin: 5% auto 4% auto;
+      color: $app-primary-font-color;
+    }
+
+    img {
+      box-shadow: 0px 0px 10px -2px #b19c71;
+      width: 200px;
+      height: 160px;
+      border-radius: 8px;
+    }
+
+    .selection-text-admin {
+      width: 7rem;
+      bottom: 130px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $app-supporting-color;
+      background-color: $app-primary-font-color;
+      opacity: 75%;
+      border-radius: 4px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      pointer-events: none;
+      position: relative;
+      font-family: $app-primary-font;
+    }
+
+    .inputfile {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      z-index: -1;
+      position: absolute;
+    }
+
+    .inputfile + label {
+      display: flex;
+      width: 160px;
+      height: 40px;
+      margin: -75px auto;
+      align-items: center;
+      justify-content: space-around;
+      border: solid 2px #b19c71;
+      border-radius: 6px;
+      font-size: 0.8em;
+      color: #b19c71;
+      padding: 10px;
+      background-color: black;
+      cursor: pointer;
+    }
+
+    .inputfile + label:hover {
+      background-color: #b19c71;
+      color: black;
+      border: solid 3px black;
+    }
+
+    .inputfile:focus + label {
+      background-color: #b19c71;
+      color: black;
+      border: solid 3px black;
+    }
+  }
+
+  .admin-controls-btn {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    margin: 35px auto 40px auto;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .profile-degustation-ctn {
+    width: 100%;
+    height: auto;
+
+    .degustation-header-admin {
+      justify-content: center;
+      width: 100%;
+      height: auto;
+
+      .degustation-title-admin {
+        display: flex;
+        justify-content: center;
+
+        textarea {
+          margin-left: 17px;
+          border: none;
+          resize: none;
+          width: 490px;
+          height: 10vh;
+          text-align: center;
+
+          @include font-title-tablet;
+          background: transparent;
+        }
+        img {
+          width: 22px;
+          margin-bottom: 98px;
+        }
+      }
+
+      .degustation-texte-admin {
+        display: flex;
+        justify-content: center;
+
+        textarea {
+          resize: none;
+          border-radius: 3px;
+          border: 2px solid #b19c71;
+          width: 490px;
+          text-align: center;
+          @include font-text-tablet-desktop;
+          background: transparent;
+        }
+      }
+      img {
+        width: 22px;
+        margin-left: 5px;
+      }
+    }
+
+    .assemblage-img-ctn,
+    .selection-img-ctn {
+      width: auto;
+      height: 290px;
+      text-align: center;
+    }
+
+    .assemblez-vin-admin,
+    .selection-vin-admin {
+      width: 100%;
+      align-items: center;
+      margin-top: 1rem;
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      img {
+        box-shadow: 0px 0px 10px -2px #b19c71;
+        width: 270px;
+        height: 210px;
+        border-radius: 8px;
+      }
+
+      .selection-text-admin {
+        width: 7rem;
+        top: -158px;
+        left: 50%;
+      }
+
+      .inputfile + label {
+        width: 171px;
+        height: 45px;
+        margin: -60px auto;
+        font-size: 0.9em;
+      }
+    }
+
+    .admin-controls-btn {
+      height: 170px;
+      margin: 65px auto 40px auto;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .profile-degustation-ctn {
+    width: 100%;
+    height: 100%;
+    .degustation-header-admin {
+      justify-content: center;
+      width: 100%;
+      height: auto;
+
+      .degustation-title-admin {
+        display: flex;
+        justify-content: center;
+
+        textarea {
+          width: 500px;
+          height: 13vh;
+          margin: 20px 0 20px 0;
+
+          @include font-title-desktop;
+          background: transparent;
+        }
+
+        img {
+          width: 25px;
+          margin-bottom: 50px;
+        }
+      }
+
+      .degustation-texte-admin {
+        display: flex;
+        justify-content: center;
+
+        textarea {
+          resize: none;
+          border-radius: 3px;
+          border: 2px solid #b19c71;
+          width: 630px;
+          height: 20vh;
+          text-align: center;
+          @include font-text-tablet-desktop;
+          background: transparent;
+        }
+      }
+
+      img {
+        width: 25px;
+        margin-left: 5px;
+      }
+    }
+
+    .assemblage-img-ctn,
+    .selection-img-ctn {
+      width: auto;
+      text-align: center;
+    }
+
+    .assemble-select-img-ctn {
+      width: 100%;
+      height: 450px;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+      padding: 0 200px;
+    }
+    .assemblez-vin-admin,
+    .selection-vin-admin {
+      width: 100%;
+      align-items: center;
+      margin-top: 1rem;
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      img {
+        box-shadow: 0px 0px 10px -2px #b19c71;
+        width: 300px;
+        height: 240px;
+        border-radius: 8px;
+      }
+
+      .selection-text-admin {
+        width: 7rem;
+        top: -190px;
+        left: 50%;
+      }
+
+      .inputfile + label {
+        width: 171px;
+        height: 45px;
+        margin: -60px auto;
+        font-size: 0.9em;
+      }
+    }
+
+    .admin-controls-btn {
+      width: 550px;
+      flex-direction: row;
+      height: 70px;
+      justify-content: space-between;
+      text-align: center;
+      margin: 140px auto 40px auto;
+    }
+  }
+}

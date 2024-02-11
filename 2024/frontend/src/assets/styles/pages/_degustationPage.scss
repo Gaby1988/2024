@@ -1,0 +1,48 @@
+.DegustationPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .bottle-wine-img {
+    opacity: 10%;
+    height: 90vh;
+    z-index: -1;
+    position: absolute;
+  }
+
+  .taste-slider-main-ctn {
+    width: 75%;
+  }
+
+  .btn-navigate {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (min-width: $app-tablet) and (max-width: $app-desktop) {
+  .DegustationPage {
+    .taste-slider-main-ctn {
+      width: 57%;
+    }
+    .bottle-wine-img {
+      bottom: 0;
+      width: 100vw;
+    }
+  }
+  .btn-navigate {
+    padding-top: 2.5rem;
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .DegustationPage {
+    .taste-slider-main-ctn {
+      width: 40%;
+    }
+
+    .bottle-wine-img {
+      bottom: 0;
+      width: 41vw;
+    }
+  }
+}

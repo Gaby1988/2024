@@ -1,0 +1,100 @@
+.user-display-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+  margin-bottom: 2rem;
+  border-bottom: solid 2px $font-family-title-color;
+
+  p {
+    padding-right: 0.5rem;
+    margin: 0.25rem 0;
+    text-align: left;
+  }
+
+  .email-name-lastname-user {
+    .name-lastname-user-admin {
+      display: flex;
+      width: 11rem;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+
+    .email-container {
+      width: 10rem;
+      overflow: hidden;
+    }
+  }
+
+  .icons-and-admin {
+    display: flex;
+    flex-direction: column;
+
+    .member-admin-switch {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .buttons-modif-and-delete {
+    display: none;
+    .modif-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 29px;
+      height: 29px;
+      background-color: $app-bg-color;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .user-display-container {
+    .email-name-lastname-user {
+      display: flex;
+
+      .email-container {
+        width: 16rem;
+      }
+    }
+    .icons-and-admin {
+      flex-direction: row;
+      align-items: center;
+
+      .buttons-modif-and-delete {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+
+        img {
+          width: 29px;
+          height: 29px;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .user-display-container {
+    .icons-and-admin {
+      .buttons-modif-and-delete {
+        margin: 0 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop-medium) {
+  .user-display-container {
+    .email-name-lastname-user {
+      .email-container {
+        width: auto;
+      }
+    }
+  }
+}

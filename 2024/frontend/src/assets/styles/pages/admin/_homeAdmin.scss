@@ -1,0 +1,38 @@
+.home-page-admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .grapeLeafs {
+    position: absolute;
+    z-index: -5;
+    opacity: 20%;
+    right: 20vw;
+  }
+
+  .link-list-home-admin {
+    li {
+      display: block;
+      margin: 3rem;
+      text-decoration: none;
+      color: $font-family-title-color;
+      font-family: $font-family-title;
+      font-size: $font-size-list-burger-tablet;
+    }
+
+    li:hover {
+      color: $app-primary-font-color;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .link-deconnection-admin {
+    color: $app-primary-font-color;
+    font-size: $font-size-text-tablet;
+  }
+}

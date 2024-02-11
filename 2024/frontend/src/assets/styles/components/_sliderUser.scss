@@ -1,0 +1,59 @@
+.sliderRating {
+  padding-top: 4rem;
+  .taste-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .taste-name,
+    .taste-rating {
+      color: $font-family-title-color;
+    }
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: $font-family-title-color;
+    height: 0.1rem;
+  }
+
+  /******** Firefox ********/
+  input[type="range"]::-moz-range-track {
+    background: $font-family-title-color;
+    height: 0.1rem;
+  }
+
+  /***** Thumb Styles *****/
+  /***** Chrome, Safari, Opera, and Edge Chromium *****/
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -7px;
+    background-color: #f1dba0;
+    border-radius: 35px;
+    border: 2px solid $font-family-title-color;
+    height: 1rem;
+    width: 2rem;
+  }
+}
+@media screen and (min-width: $app-tablet) and (max-width: $app-desktop) {
+  .sliderRating {
+    .taste-slider {
+      padding-top: 2rem;
+    }
+
+    .taste-info {
+      .taste-name {
+        font-size: $font-size-text-tablet;
+      }
+    }
+  }
+}

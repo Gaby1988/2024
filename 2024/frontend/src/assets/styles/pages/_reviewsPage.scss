@@ -1,0 +1,119 @@
+.wineGlass {
+  opacity: 10%;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.reviewsPageDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  a:link {
+    text-decoration: none;
+  }
+  .reviewsPageH2 {
+    margin-top: 5vh;
+  }
+  .reviewsPageP {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+  }
+  .nameDiv {
+    margin-top: 3vh;
+  }
+  #reviewsPageButton {
+    margin-top: 5vh;
+  }
+  .reviewsInput {
+    background-color: transparent;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 5vh;
+    width: 40vw;
+    font-size: 14px;
+    color: $font-family-title-color;
+  }
+
+  .reviewsInput:focus {
+    outline: none;
+  }
+
+  .nameInput {
+    margin-right: 5vw;
+  }
+  .longInput {
+    background-color: transparent;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 5vh;
+    width: 85vw;
+    font-size: 14px;
+    color: $font-family-title-color;
+  }
+  .longInput {
+    outline: none;
+  }
+  .nextTimeP {
+    color: $font-family-title-color;
+  }
+  .nextTimeP:hover {
+    color: $app-supporting-color2;
+  }
+}
+
+.stars {
+  color: $app-primary-font-color;
+  display: flex;
+}
+
+.p-rating-item {
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+svg {
+  height: 3vh;
+  width: 3vh;
+}
+
+@media screen and (min-width: $app-tablet) {
+  .wineGlass {
+    width: 70vw;
+    margin-right: 15vw;
+    margin-left: 15vw;
+  }
+  .reviewsInput {
+    width: 30vw !important;
+    font-size: $font-size-text-tablet !important;
+  }
+
+  .nameInput {
+    margin-right: 10vw !important;
+  }
+  .longInput {
+    width: 70vw !important;
+    font-size: $font-size-text-tablet !important;
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .wineGlass {
+    width: 35vw;
+    margin-right: 32.5vw;
+    margin-left: 32.5vw;
+  }
+  .reviewsInput {
+    width: 15vw !important;
+  }
+  .nameInput {
+    margin-right: 10vw !important;
+  }
+  .longInput {
+    width: 40vw !important;
+  }
+}

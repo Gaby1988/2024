@@ -1,0 +1,60 @@
+.back-img {
+  opacity: 10%;
+  height: 86vh;
+  width: 90vw;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  object-fit: cover;
+}
+
+.page-border {
+  border: 3px solid $app-primary-font-color;
+  width: 90vw;
+  height: 86vh;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  line-height: 1.7rem;
+
+  .page-ctn {
+    H2 {
+      height: 50px;
+    }
+    p {
+      font-family: $app-primary-font;
+    }
+  }
+}
+.btn-home {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: $app-tablet) {
+  .page-ctn {
+    H2 {
+      margin: 2rem;
+    }
+    p {
+      font-family: $app-primary-font;
+      margin: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .page-ctn {
+    H2 {
+      margin: 2rem;
+    }
+    p {
+      font-family: $app-primary-font;
+      margin: 1rem;
+    }
+  }
+}

@@ -1,0 +1,205 @@
+/* Website Font */
+$app-primary-font: "Roboto", sans-serif;
+$font-family-title: "Playfair Display", serif;
+
+/* Website color*/
+$app-primary-font-color: #beaa76;
+$font-family-title-color: #aaaaaa;
+$app-supporting-color: #fffcf6;
+$app-supporting-color2: #eeeeee;
+
+/* Website Background */
+$app-bg-color: #232222;
+$app-bg-color-button: #000000;
+$app-bow-shadow: rgba(170, 170, 170, 0.6);
+$app-slider-off: #8b7b50;
+
+/* Media query */
+$app-mobile: 320px;
+$app-tablet: 768px;
+$app-desktop: 1024px;
+$app-desktop-medium: 1440px;
+$app-desktop-large: 1680px;
+
+/* Website Font Size */
+$font-size-text-phone: 14px;
+$font-size-text-phone-home: 18px;
+$font-size-text-tablet: 20px;
+$font-size-list-burger-tablet: 38px;
+
+@mixin font-title-phone {
+  font-family: $font-family-title;
+  color: $app-primary-font-color;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+@mixin font-title-tablet {
+  font-family: $font-family-title;
+  color: $app-primary-font-color;
+  font-weight: 600;
+  font-size: 38px;
+}
+
+@mixin font-title-desktop {
+  font-family: $font-family-title;
+  color: $app-primary-font-color;
+  font-weight: 600;
+  font-size: 60px;
+}
+
+@mixin font-subheading-phone {
+  font-family: $font-family-title;
+  font-weight: normal;
+  font-size: 20px;
+  color: $app-supporting-color2;
+}
+
+@mixin font-subheading-tablet {
+  font-family: $font-family-title;
+  font-weight: normal;
+  font-size: 24px;
+  color: $app-supporting-color2;
+}
+
+@mixin font-subheading-desktop {
+  font-family: $font-family-title;
+  font-weight: normal;
+  font-size: 45px;
+  color: $app-supporting-color2;
+}
+
+@mixin font-text-phone {
+  font-family: $app-primary-font;
+  font-weight: normal;
+  font-size: $font-size-text-phone;
+  color: $app-supporting-color2;
+}
+
+@mixin font-text-tablet-desktop {
+  font-family: $app-primary-font;
+  font-weight: normal;
+  font-size: $font-size-text-tablet;
+}
+
+/* Website Buttons */
+
+@mixin primary-button-phone {
+  background-color: $app-bg-color-button;
+  color: $app-primary-font-color;
+  border-style: none;
+  border: solid 2px $app-primary-font-color;
+  border-radius: 6px;
+  width: 7rem;
+  height: 3rem;
+  font-size: $font-size-text-phone;
+  font-family: $app-primary-font;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $app-primary-font-color;
+    color: $app-bg-color-button;
+    border: solid 2px $app-bg-color-button;
+  }
+}
+
+@mixin primary-button-tablet {
+  background-color: $app-bg-color-button;
+  color: $app-primary-font-color;
+  border-style: none;
+  border: solid 2px $app-primary-font-color;
+  border-radius: 6px;
+  width: 8rem;
+  height: 3rem;
+  font-size: $font-size-text-tablet;
+  font-family: $app-primary-font;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $app-primary-font-color;
+    color: $app-bg-color-button;
+    border: solid 2px $app-bg-color-button;
+  }
+}
+
+@mixin primary-button-desktop {
+  background-color: $app-bg-color-button;
+  color: $app-primary-font-color;
+  border-style: none;
+  border: solid 2px $app-primary-font-color;
+  border-radius: 6px;
+  width: 8rem;
+  height: 3rem;
+  font: {
+    size: $font-size-text-tablet;
+    family: $app-primary-font;
+  }
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $app-primary-font-color;
+    color: $app-bg-color-button;
+    border: solid 2px $app-bg-color-button;
+  }
+}
+
+@mixin secondary-button-phone {
+  background-color: $app-bg-color-button;
+  color: $app-primary-font-color;
+  border-style: none;
+  border: solid 2px $app-primary-font-color;
+  border-radius: 6px;
+  width: 4rem;
+  height: 2.5rem;
+  font-size: $font-size-text-phone;
+  font-family: $app-primary-font;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $app-primary-font-color;
+    color: $app-bg-color-button;
+    border: solid 2px $app-bg-color-button;
+  }
+}
+
+@mixin primary-secondary-tablet-desktop {
+  background-color: $app-bg-color-button;
+  color: $app-primary-font-color;
+  border-style: none;
+  border: solid 2px $app-primary-font-color;
+  border-radius: 6px;
+  width: 6rem;
+  height: 3rem;
+  font: {
+    size: $font-size-text-tablet;
+    family: $app-primary-font;
+  }
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $app-primary-font-color;
+    color: $app-bg-color-button;
+    border: solid 2px $app-bg-color-button;
+  }
+}
+
+/* search bar*/
+
+@mixin search-bar($width, $height, $font-size) {
+  background-color: $app-supporting-color;
+  color: $font-family-title-color;
+  border-style: none;
+  border: solid 2px $app-primary-font-color;
+  border-radius: 6px;
+  width: $width;
+  height: $height;
+  font: {
+    size: $font-size;
+    family: $app-primary-font;
+  }
+}

@@ -1,0 +1,26 @@
+.cepageInput {
+  background-color: transparent;
+  border-right: none;
+  border-top: none;
+  margin-bottom: 5vh;
+  width: 40vw;
+  font-size: $font-size-text-phone;
+  color: $font-family-title-color;
+  text-align: center;
+}
+
+.cepageInput:focus {
+  outline: none;
+}
+
+@media screen and (min-width: $app-tablet) {
+  .cepageInput {
+    font-size: $font-size-text-tablet;
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .cepageInput {
+    width: 15vw !important;
+  }
+}

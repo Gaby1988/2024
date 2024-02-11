@@ -1,0 +1,67 @@
+.create-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+
+  .slider-admin-user {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 80%;
+  }
+
+  form {
+    width: 100%;
+
+    input {
+      margin-top: 4rem;
+    }
+
+    .container_form_city {
+      display: flex;
+    }
+  }
+
+  button {
+    margin: 2rem 0;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .create-user-container {
+    width: 60%;
+
+    .slider-admin-user {
+      width: 60%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 60vh;
+
+      input {
+        margin-top: 0rem;
+      }
+
+      .container_form_city {
+        margin: 2rem 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .create-user-container {
+    .slider-admin-user {
+      width: 50%;
+    }
+
+    form {
+      height: 52vh;
+    }
+  }
+}

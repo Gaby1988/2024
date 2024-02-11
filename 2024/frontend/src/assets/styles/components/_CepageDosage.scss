@@ -1,0 +1,50 @@
+.cepage-dosage-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .name-cepage-title {
+    word-break: break-word;
+    width: 6rem;
+    display: flex;
+  }
+
+  .cepage-input {
+    display: flex;
+    align-items: flex-end;
+
+    input::placeholder {
+      color: $font-family-title-color;
+    }
+
+    .input-dosage {
+      height: 1.5rem;
+      width: 4rem;
+      margin-right: 0.5rem;
+      text-indent: 2.2rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid $font-family-title-color;
+      color: white;
+      font-size: 20px;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .input-dosage:focus {
+      outline: none;
+      border-bottom: solid 2px $font-family-title-color;
+    }
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .cepage-dosage-container {
+    .name-cepage-title {
+      width: 16rem;
+    }
+  }
+}

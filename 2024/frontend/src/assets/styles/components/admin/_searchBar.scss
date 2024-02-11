@@ -1,0 +1,36 @@
+.search-bar-container-admin {
+  input {
+    border: solid 2px $app-primary-font-color;
+    border-radius: 6px;
+    background-color: $app-supporting-color;
+    color: $font-family-title-color;
+    font-size: $font-size-text-phone;
+    padding: 0.5rem;
+  }
+
+  input::placeholder {
+    color: $font-family-title-color;
+  }
+
+  input:focus {
+    outline: none;
+    border: 3px solid $app-primary-font-color;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .search-bar-container-admin {
+    input {
+      width: 15rem;
+      font-size: $font-size-text-tablet;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .search-bar-container-admin {
+    input {
+      width: 20rem;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+.container-burger-menu {
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    height: 100vh;
+    right: -100vw;
+    bottom: 0;
+    top: 4rem;
+    padding: 2rem;
+    background-color: $app-bg-color;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+  }
+
+  .wineLeaf {
+    position: absolute;
+    z-index: -5;
+    height: 50vh;
+    width: auto;
+    right: 18vw;
+    opacity: 20%;
+    top: 0vh;
+
+  }
+
+  .show-nav {
+    right: 0;
+    width: 100%;
+  }
+
+  li {
+    display: block;
+    margin: 3.5rem;
+    text-decoration: none;
+    color: $font-family-title-color;
+    font-family: $font-family-title;
+    font-size: $font-size-text-tablet;
+  }
+
+  li:hover {
+    color: $app-primary-font-color;
+    cursor: pointer;
+  }
+
+  .link-deconnection-admin {
+    color: $app-primary-font-color;
+    font-size: $font-size-text-tablet;
+    background-color: $app-bg-color;
+    outline: none;
+    border: none;
+    margin-left: -0.7vw;
+  }
+
+  .link-deconnection-admin:hover {
+    color: $app-supporting-color;
+  }
+
+  .menu-burger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    height: 40px;
+    width: 44px;
+    background-color: $app-bg-color;
+    border: none;
+  }
+
+  .menu-burger:hover {
+    cursor: pointer;
+  }
+
+  .burger-bar,
+  .burger-bar::after,
+  .burger-bar::before {
+    display: block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background-color: $app-primary-font-color;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .burger-bar::after,
+  .burger-bar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .burger-bar::before {
+    transform: translateY(-12px);
+  }
+
+  .burger-bar::after {
+    transform: translateY(12px);
+  }
+
+  .show-nav .burger-bar {
+    background-color: transparent;
+    width: 0;
+  }
+
+  .show-nav .burger-bar::before {
+    transform: rotate(45deg);
+  }
+
+  .show-nav .burger-bar::after {
+    transform: rotate(-45deg);
+  }
+
+  .hide-burger-menu {
+    visibility: hidden;
+  }
+
+  button {
+    width: 225px;
+    font-family: $font-family-title;
+  }
+}
+
+@media screen and (min-width: $app-tablet) {
+  .container-burger-menu {
+    .link-deconnection-admin {
+      font-size: $font-size-list-burger-tablet;
+    }
+
+    li {
+      font-size: $font-size-list-burger-tablet;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: $app-desktop) {
+  .container-burger-menu {
+    li {
+      text-align: end;
+    }
+
+    .show-nav {
+      align-items: end;
+    }
+
+    .nav-links {
+      align-items: end;
+    }
+  }
+}
