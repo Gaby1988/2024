@@ -29,47 +29,6 @@ const getUserById = (req, res) => {
       res.sendStatus(500);
     });
 };
-
-// const createUser = (req, res) => {
-//   const user = req.body;
-//   if (user.is_admin === true) {
-//     user.is_admin = 1;
-//   } else {
-//     user.is_admin = 0;
-//   }
-//   const dataUser = [
-//     "firstname",
-//     "lastname",
-//     "email",
-//     "address",
-//     "zip_code",
-//     "city",
-//     "job",
-//     "hashedPassword",
-//     "is_admin",
-//   ].sort();
-//   const dataBody = Object.keys(req.body).toString().split(",").sort();
-//   console.info(`keyBody ${dataBody}`);
-//   console.info(`data user: ${dataUser}`);
-//   const filteredData = dataBody.every(
-//     (value, index) => value === dataUser[index]
-//   );
-//   console.info(`filtré ${filteredData}`);
-//   models.user
-//     .addUser(user, dataUser)
-//     .then(([result]) => {
-//       if (filteredData) {
-//         res.location(`/users/${result.insertId}`).sendStatus(201);
-//       } else {
-//         res.sendStatus(404);
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(500);
-//     });
-// };
-
 // modification de l'emplacement de la condition
 const createUser = (req, res) => {
   const user = req.body;
@@ -116,7 +75,6 @@ const createUser = (req, res) => {
   }
 };
 
-
 const updateUser = (req, res) => {
   const user = req.body;
   user.user_id = parseInt(req.params.id, 10);
@@ -158,8 +116,52 @@ const updateIsAdmin = (req, res) => {
 
 // const modifyUser = (req, res) => {
 //   const { id } = req.params;
-//   const { firstname, lastname, address, zip_code, city, job } = req.body;
+// const { firstname, lastname, address, zip_code, city, job } = req.body;
 
+// const user = {
+//   firstname,
+//   lastname,
+//   address,
+//   zip_code,
+//   city,
+//   job,
+//   user_id: id,
+// };
+// const dataUserKeys = Object.keys(user)
+//   .toString()
+//   .split(",")
+//   .filter((item) => item !== "user_id");
+// const dataReqBodyKeys = Object.keys(req.body).toString().split(",");
+// const filteredData = dataReqBodyKeys.every(
+//   (value, index) => value === dataUserKeys[index]
+// );
+// if (filteredData) {
+//   models.user
+//     .modifyUser(user)
+//     .then((data) => {
+//       if (data[0].affectedRows === 1) {
+//         console.info("dans if de usermodify");
+//         res.status(200).json("patch succesful");
+//       } else {
+//         console.info("dans else qui doit renvoyer un 404 de usermodify");
+//         res.sendStatus(404);
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(500);
+//     });
+// } else {
+//   res
+//     .status(400)
+//     .json({
+//       message: "Les données fournies ne correspondent pas aux attentes",
+//     });
+// }
+// };
+
+// const modifyUser = (req, res) => {
+//   const { firstname, lastname, address, zip_code, city, job } = req.body;
 //   const user = {
 //     firstname,
 //     lastname,
@@ -167,7 +169,7 @@ const updateIsAdmin = (req, res) => {
 //     zip_code,
 //     city,
 //     job,
-//     user_id: id,
+//     user_id: parseInt(req.params.id, 10),
 //   };
 //   const dataUserKeys = Object.keys(user)
 //     .toString()
@@ -177,27 +179,31 @@ const updateIsAdmin = (req, res) => {
 //   const filteredData = dataReqBodyKeys.every(
 //     (value, index) => value === dataUserKeys[index]
 //   );
-
-//   models.user
-//     .modifyUser(user)
-//     .then((data) => {
-//       if (data[0].affectedRows === 1 && filteredData) {
-//         res.status(200).json("patch succesful");
-//       } else {
-//         res.sendStatus(404);
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(500);
+//   if (filteredData) {
+//     models.user
+//       .modifyUser(user)
+//       .then((data) => {
+//         if (data[0].affectedRows === 1) {
+//           console.info("dans if de usermodify");
+//           res.status(200).json("patch succesful");
+//         } else {
+//           console.info("dans else qui doit renvoyer un 404 de usermodify");
+//           res.sendStatus(404);
+//         }
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         res.sendStatus(500);
+//       });
+//   } else {
+//     res.status(400).json({
+//       message: "Les données fournies ne correspondent pas aux attentes",
 //     });
+//   }
 // };
-
-// pareil déplacement de la condition
+// comparaison avec includes() pas besoin de se soucier de l'ordre des deux tableaux
 const modifyUser = (req, res) => {
-  const { id } = req.params;
   const { firstname, lastname, address, zip_code, city, job } = req.body;
-
   const user = {
     firstname,
     lastname,
@@ -205,17 +211,22 @@ const modifyUser = (req, res) => {
     zip_code,
     city,
     job,
-    user_id: id,
+    user_id: parseInt(req.params.id, 10),
   };
-  const dataUserKeys = Object.keys(user)
-    .toString()
-    .split(",")
-    .filter((item) => item !== "user_id");
-  const dataReqBodyKeys = Object.keys(req.body).toString().split(",");
-  const filteredData = dataReqBodyKeys.every(
-    (value, index) => value === dataUserKeys[index]
-  );
-  if (filteredData) {
+  const expectedKeys = [
+    "firstname",
+    "lastname",
+    "zip_code",
+    "address",
+    "job",
+    "city",
+  ];
+  const receivedKeys = Object.keys(req.body);
+  const keysMatch = expectedKeys.every((key) => receivedKeys.includes(key));
+  console.info(`keysMatch ${keysMatch}`);
+  console.info(`receivedKeys ${receivedKeys}`);
+  console.info(`expectedKeys ${expectedKeys}`);
+  if (keysMatch) {
     models.user
       .modifyUser(user)
       .then((data) => {
@@ -232,33 +243,12 @@ const modifyUser = (req, res) => {
         res.sendStatus(500);
       });
   } else {
-    res
-      .status(400)
-      .json({
-        message: "Les données fournies ne correspondent pas aux attentes",
-      });
+    res.status(400).json({
+      message: "Les données fournies ne correspondent pas aux attentes",
+    });
   }
 };
 
-
-// const modifyUser = (req, res) => {
-//   const user = req.body;
-//   user.user_id = parseInt(req.params.id, 10);
-
-//   models.user
-//     .modifyUser(user)
-//     .then((data) => {
-//       if (data[0].affectedRows === 1) {
-//         res.status(200).json("patch succesful");
-//       } else {
-//         res.sendStatus(404);
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(500);
-//     });
-// };
 const destroy = (req, res) => {
   models.user
     .delete(req.params.id)
