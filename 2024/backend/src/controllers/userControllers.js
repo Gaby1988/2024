@@ -30,6 +30,47 @@ const getUserById = (req, res) => {
     });
 };
 
+// const createUser = (req, res) => {
+//   const user = req.body;
+//   if (user.is_admin === true) {
+//     user.is_admin = 1;
+//   } else {
+//     user.is_admin = 0;
+//   }
+//   const dataUser = [
+//     "firstname",
+//     "lastname",
+//     "email",
+//     "address",
+//     "zip_code",
+//     "city",
+//     "job",
+//     "hashedPassword",
+//     "is_admin",
+//   ].sort();
+//   const dataBody = Object.keys(req.body).toString().split(",").sort();
+//   console.info(`keyBody ${dataBody}`);
+//   console.info(`data user: ${dataUser}`);
+//   const filteredData = dataBody.every(
+//     (value, index) => value === dataUser[index]
+//   );
+//   console.info(`filtré ${filteredData}`);
+//   models.user
+//     .addUser(user, dataUser)
+//     .then(([result]) => {
+//       if (filteredData) {
+//         res.location(`/users/${result.insertId}`).sendStatus(201);
+//       } else {
+//         res.sendStatus(404);
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(500);
+//     });
+// };
+
+// modification de l'emplacement de la condition
 const createUser = (req, res) => {
   const user = req.body;
   if (user.is_admin === true) {
@@ -55,20 +96,26 @@ const createUser = (req, res) => {
     (value, index) => value === dataUser[index]
   );
   console.info(`filtré ${filteredData}`);
-  models.user
-    .addUser(user, dataUser)
-    .then(([result]) => {
-      if (filteredData) {
+  if (filteredData) {
+    models.user
+      .addUser(user, dataUser)
+      .then(([result]) => {
         res.location(`/users/${result.insertId}`).sendStatus(201);
-      } else {
-        res.sendStatus(404);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
+        console.info(`location ${res.location}`);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  } else {
+    // res.sendStatus(404);
+    // Ou pour envoyer un message au front
+    res.status(400).json({
+      message: "Les données fournies ne correspondent pas aux attentes",
     });
+  }
 };
+
 
 const updateUser = (req, res) => {
   const user = req.body;
