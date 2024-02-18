@@ -78,26 +78,37 @@ class UserManager extends AbstractManager {
   //     ]
   //   );
   // }
-  modifyUser(user) {
-    const dataUser = "firstname,lastname,address,zip_code,city,job"
-      .split(",")
-      .map((x) => x.concat(" = ?"))
-      .join(",");
+  
+  // modifyUser(user) {
+  //   const dataUser = "firstname,lastname,address,zip_code,city,job"
+  //     .split(",")
+  //     .map((x) => x.concat(" = ?"))
+  //     .join(",");
 
+  //   return this.database.query(
+  //     `UPDATE ${this.table} SET ${dataUser} WHERE user_id = ?`,
+  //     [
+  //       user.firstname,
+  //       user.lastname,
+  //       user.address,
+  //       user.zip_code,
+  //       user.city,
+  //       user.job,
+  //       user.user_id,
+  //     ]
+  //   );
+  // }
+  
+  // ou
+  modifyUser(user) {
+    const dataUser = "firstname,lastname,address,zip_code,city,job".split(",");
+    const dataUserJoin = dataUser.map((x) => x.concat(" = ?")).join(", ");
+    const userDataValues = dataUser.map((data) => user[data]);
     return this.database.query(
-      `UPDATE ${this.table} SET ${dataUser} WHERE user_id = ?`,
-      [
-        user.firstname,
-        user.lastname,
-        user.address,
-        user.zip_code,
-        user.city,
-        user.job,
-        user.user_id,
-      ]
+      `UPDATE ${this.table} SET ${dataUserJoin} WHERE user_id = ?`,
+      [...userDataValues, user.user_id]
     );
   }
-
   // modifyUser(user) {
   //   const dataUser = "firstname,lastname,address,zip_code,city,job".split(",");
   //   const dataUserSet = dataUser.map((x) => x.concat(" = ?")).join(",");
