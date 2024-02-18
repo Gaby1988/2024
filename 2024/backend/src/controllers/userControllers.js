@@ -156,6 +156,44 @@ const updateIsAdmin = (req, res) => {
     });
 };
 
+// const modifyUser = (req, res) => {
+//   const { id } = req.params;
+//   const { firstname, lastname, address, zip_code, city, job } = req.body;
+
+//   const user = {
+//     firstname,
+//     lastname,
+//     address,
+//     zip_code,
+//     city,
+//     job,
+//     user_id: id,
+//   };
+//   const dataUserKeys = Object.keys(user)
+//     .toString()
+//     .split(",")
+//     .filter((item) => item !== "user_id");
+//   const dataReqBodyKeys = Object.keys(req.body).toString().split(",");
+//   const filteredData = dataReqBodyKeys.every(
+//     (value, index) => value === dataUserKeys[index]
+//   );
+
+//   models.user
+//     .modifyUser(user)
+//     .then((data) => {
+//       if (data[0].affectedRows === 1 && filteredData) {
+//         res.status(200).json("patch succesful");
+//       } else {
+//         res.sendStatus(404);
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(500);
+//     });
+// };
+
+// pareil déplacement de la condition
 const modifyUser = (req, res) => {
   const { id } = req.params;
   const { firstname, lastname, address, zip_code, city, job } = req.body;
@@ -177,21 +215,31 @@ const modifyUser = (req, res) => {
   const filteredData = dataReqBodyKeys.every(
     (value, index) => value === dataUserKeys[index]
   );
-
-  models.user
-    .modifyUser(user)
-    .then((data) => {
-      if (data[0].affectedRows === 1 && filteredData) {
-        res.status(200).json("patch succesful");
-      } else {
-        res.sendStatus(404);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+  if (filteredData) {
+    models.user
+      .modifyUser(user)
+      .then((data) => {
+        if (data[0].affectedRows === 1) {
+          console.info("dans if de usermodify");
+          res.status(200).json("patch succesful");
+        } else {
+          console.info("dans else qui doit renvoyer un 404 de usermodify");
+          res.sendStatus(404);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  } else {
+    res
+      .status(400)
+      .json({
+        message: "Les données fournies ne correspondent pas aux attentes",
+      });
+  }
 };
+
 
 // const modifyUser = (req, res) => {
 //   const user = req.body;
