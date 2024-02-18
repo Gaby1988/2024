@@ -30,6 +30,51 @@ const getUserById = (req, res) => {
     });
 };
 // modification de l'emplacement de la condition
+// const createUser = (req, res) => {
+//   const user = req.body;
+//   if (user.is_admin === true) {
+//     user.is_admin = 1;
+//   } else {
+//     user.is_admin = 0;
+//   }
+//   const dataUser = [
+//     "firstname",
+//     "lastname",
+//     "email",
+//     "address",
+//     "zip_code",
+//     "city",
+//     "job",
+//     "hashedPassword",
+//     "is_admin",
+//   ].sort();
+//   const dataBody = Object.keys(req.body).toString().split(",").sort();
+//   console.info(`keyBody ${dataBody}`);
+//   console.info(`data user: ${dataUser}`);
+//   const filteredData = dataBody.every(
+//     (value, index) => value === dataUser[index]
+//   );
+//   console.info(`filtré ${filteredData}`);
+//   if (filteredData) {
+//     models.user
+//       .addUser(user, dataUser)
+//       .then(([result]) => {
+//         res.location(`/users/${result.insertId}`).sendStatus(201);
+//         console.info(`location ${res.location}`);
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         res.sendStatus(500);
+//       });
+//   } else {
+//     // res.sendStatus(404);
+//     // Ou pour envoyer un message au front
+//     res.status(400).json({
+//       message: "Les données fournies ne correspondent pas aux attentes",
+//     });
+//   }
+// };
+// ou avec includes()
 const createUser = (req, res) => {
   const user = req.body;
   if (user.is_admin === true) {
@@ -47,20 +92,17 @@ const createUser = (req, res) => {
     "job",
     "hashedPassword",
     "is_admin",
-  ].sort();
-  const dataBody = Object.keys(req.body).toString().split(",").sort();
+  ];
+  const dataBody = Object.keys(req.body);
   console.info(`keyBody ${dataBody}`);
   console.info(`data user: ${dataUser}`);
-  const filteredData = dataBody.every(
-    (value, index) => value === dataUser[index]
-  );
+  const filteredData = dataUser.every((value) => dataBody.includes(value));
   console.info(`filtré ${filteredData}`);
   if (filteredData) {
     models.user
       .addUser(user, dataUser)
       .then(([result]) => {
         res.location(`/users/${result.insertId}`).sendStatus(201);
-        console.info(`location ${res.location}`);
       })
       .catch((err) => {
         console.error(err);
@@ -69,6 +111,7 @@ const createUser = (req, res) => {
   } else {
     // res.sendStatus(404);
     // Ou pour envoyer un message au front
+    console.info("ici");
     res.status(400).json({
       message: "Les données fournies ne correspondent pas aux attentes",
     });
