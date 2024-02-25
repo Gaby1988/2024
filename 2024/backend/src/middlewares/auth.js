@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
+
 require("dotenv").config();
 
 const hashingOptions = {
@@ -10,8 +11,9 @@ const hashingOptions = {
 };
 
 const hashPassword = (req, res, next) => {
+  console.info("local password = ", res.locals.password);
   argon2
-    .hash(req.body.password, hashingOptions)
+    .hash(res.locals.password, hashingOptions)
     .then((hashedPassword) => {
       req.body.hashedPassword = hashedPassword;
       delete req.body.password;
