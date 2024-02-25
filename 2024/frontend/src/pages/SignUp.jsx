@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import InputForm from "../components/InputForm";
 import WhiteGrape from "../assets/images/whiteGrape.png";
 import Berries from "../assets/images/berries.png";
-import Button from "../components/Button";
+// import Button from "../components/Button";
 import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
@@ -20,10 +20,18 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [acceptLegalMentions, setAcceptLegalMentions] = useState(false);
+  const [validatePassword, setValidatePassword] = useState(true);
+  useEffect(() => {
+    console.info(password);
+    if (password.match(/^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{20,55}$/)) {
+      setValidatePassword(false);
+    } else {
+      setValidatePassword(true);
+    }
+  }, [password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!acceptLegalMentions) {
       toast.error("Vous devez accepter les mentions légales !");
       return;
@@ -63,8 +71,9 @@ function Signup() {
         navigate("/login");
       }
     } catch (err) {
-      console.error(err);
-      navigate("/page-500");
+      console.error(err.response.data);
+      console.error("Json du back : ", err.response.data.messagePassword);
+      // navigate("/page-500");
     }
   };
 
@@ -102,6 +111,11 @@ function Signup() {
         type="password"
         placeholder="Mot de passe*"
       />
+      {/* {password.match(/^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{20,55}$/) ? (
+        <span style={{ color: "white" }}>renforcé</span>
+      ) : (
+        <span> </span>
+      )} */}
 
       <InputForm
         type="text"
@@ -153,7 +167,15 @@ function Signup() {
       </div>
 
       <div className="form_navigate">
-        <Button type="submit" className="primary-button" text="Valider" />
+        <button
+          disabled={validatePassword}
+          className="primary-button"
+          type="submit"
+          style={validatePassword ? { opacity: "0.3" } : { opacity: "1" }}
+        >
+          Valider
+        </button>
+        {/* <Button type="submit" className="primary-button" text="Valider" /> */}
         <Link to="/login">
           <p className="form_login_link">Déjà inscrit(e) ?</p>
         </Link>
