@@ -7,6 +7,7 @@ const {
   verifyPassword,
   verifyToken,
 } = require("./middlewares/auth");
+const { validateSignUpUser } = require("./validators/signUpUser");
 
 const { sendEmail } = require("./middlewares/sendEmail");
 
@@ -21,7 +22,12 @@ const recipeControllers = require("./controllers/recipeControllers");
 
 console.error(userControllers.patchUser);
 
-router.post("/users", hashPassword, userControllers.createUser);
+router.post(
+  "/users",
+  validateSignUpUser,
+  hashPassword,
+  userControllers.createUser
+);
 
 router.post(
   "/login",
